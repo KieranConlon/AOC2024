@@ -16,7 +16,8 @@ DerivedData/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -135,3 +136,5 @@ xcuserdata
 n
 .swiftpm/xcode/xcshareddata/xcschemes/aoc2024.xcscheme
 *.xcscheme
+/inputData
+/.vscode
