@@ -1,0 +1,24 @@
+{
+  "originHash" : "000b676b15a81a9484077f12a0e44a80ed57c45bf5703030b7eb22a0b37030dd",
+  "pins" : [
+    {
+      "identity" : "performancetimer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/firecrestHorizon/PerformanceTimer.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cbef5a8e2c3022397a1f83b334f4e4ae19a7aa72"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}
