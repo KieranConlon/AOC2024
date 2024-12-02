@@ -36,10 +36,6 @@ struct AOC2024: AsyncParsableCommand {
   private func printChallenge(_ challenge: CodeChallenge, day: Day, part: Int) {
     print("\n--- Day \(day.dayNum): \(challenge.title) - Challenge \(part) ---")
     print(challenge.question)
-//    if let exampleData = day.exampleData[part] {
-//      print("Example Data:")
-//      print(exampleData)
-//    }
     print()
     print("Answer: \(challenge.answer)")
     print("  Took: \(challenge.executionTime) \(challenge.reportingUnits.label)")
