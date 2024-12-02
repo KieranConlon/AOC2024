@@ -136,5 +136,5 @@ xcuserdata
 n
 .swiftpm/xcode/xcshareddata/xcschemes/aoc2024.xcscheme
 *.xcscheme
-/inputData
-/.vscode
+inputData/
+.vscode/
