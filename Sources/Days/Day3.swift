@@ -60,7 +60,7 @@ final class Day3: Day {
     
     return executeChallenge(title: title, question: question, timerReportingUnits: .milliseconds) {
       let input = useExampleData ? exampleData[1]! : rawInput
-      var program1: ComputerProgram = parseInputPart1(input)
+      let program1: ComputerProgram = parseInputPart1(input)
       
       return "\(program1.run())"
     }
@@ -75,7 +75,9 @@ final class Day3: Day {
     
     return executeChallenge(title: title, question: question, timerReportingUnits: .milliseconds) {
       let input = useExampleData ? exampleData[2]! : rawInput
-      var program2: ComputerProgram = parseInputPart2(input)
+      let program2: ComputerProgram = parseInputPart2(input)
+      
+      print("Instruction Count: \(program2.instructions.count)")
       
       return "\(program2.run())"
     }
