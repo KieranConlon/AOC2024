@@ -182,11 +182,11 @@ final class Day6: Day {
   }
   
   func part2(_ rawInput: String) -> CodeChallenge {
-    let useExampleData: Bool = false
+    //let useExampleData: Bool = false
     let question = "Question for part 2."
     
     return executeChallenge(title: title, question: question, timerReportingUnits: .milliseconds) {
-      let input = useExampleData ? exampleData[1]! : rawInput
+      //let input = useExampleData ? exampleData[1]! : rawInput
       //      let _: ModelForChallenge = parseInput(input)
       
       // Do something with the data
