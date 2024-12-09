@@ -21,7 +21,9 @@ final class Day7: Day {
     292: 11 6 16 20
     
     """,
-    2: ""
+    2: """
+    190: 10 19
+    """
   ]
   
   enum Operator: String, CaseIterable {
@@ -31,31 +33,38 @@ final class Day7: Day {
     
     func perform(_ operands: [Operand]) -> Int64 {
       switch self {
-      case .add: return operands.reduce(0) { $0 + $1.intValue }
-      case .multiply: return operands.reduce(1) { $0 * $1.intValue }
+      case .add: return operands.reduce(0) { $0 + $1 }
+      case .multiply: return operands.reduce(1) { $0 * $1 }
       case .concatenate:
-        return Int64(operands.map { $0.stringValue }.joined() ) ?? 0
+        guard operands.count >= 2 else { return 0 }
+        let first = operands[0]
+        let second = operands[1]
+        var pwr10: Int64 = 0
+        
+        switch abs(second) {
+        case ..<10: pwr10 = 10
+        case 10..<100: pwr10 = 100
+        case 100..<1000: pwr10 = 1_000
+        case 1000..<10000: pwr10 = 10_000
+        case 10000..<100000: pwr10 = 100_000
+        default :
+          pwr10 = 10^Int64(floor(log10(Double(abs(second))) + 1))
+        }
+        let result = (first * pwr10) + second
+        return result
       }
     }
   }
   
-  struct Operand {
-    let intValue: Int64
-    let stringValue: String
+  typealias Operand = Int64
     
-    init(_ value: Int64) {
-      self.intValue = value
-      self.stringValue = String(value)
-    }
-  }
-  
   struct CalibrationEquation: CustomStringConvertible {
     var operands: [Operand]
     let requiredAnswer: Int64
     
     func possibleAnswers(using allowedOperators: [Operator]) -> [Int64] {
-      guard operands.count > 1 else { return operands.map { $0.intValue } }
-      
+      guard operands.count > 1 else { return operands.map { $0 } }
+
       var calculatedAnswers: [Int64] = []
       let permutations = getPermutations(operands.count - 1, using: allowedOperators)
       
@@ -64,7 +73,7 @@ final class Day7: Day {
         for (index, op) in ops.enumerated() {
           result = Operand(op.perform([result, operands[index + 1]]))
         }
-        calculatedAnswers.append(result.intValue)
+        calculatedAnswers.append(result)
       }
       
       return calculatedAnswers
@@ -104,7 +113,7 @@ final class Day7: Day {
   }
   
   func part1(_ rawInput: String) -> CodeChallenge {
-    let useExampleData: Bool = true
+    let useExampleData: Bool = false
     let question = """
         Determine which equations could possibly be true. 
         What is their total calibration result?
@@ -121,7 +130,7 @@ final class Day7: Day {
   }
   
   func part2(_ rawInput: String) -> CodeChallenge {
-    let useExampleData: Bool = true
+    let useExampleData: Bool = false
     let question = """
         Using your new knowledge of elephant hiding spots, determine which equations could possibly be true. 
         What is their total calibration result?
