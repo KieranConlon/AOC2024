@@ -74,8 +74,9 @@ final class Day7: Day {
           result = Operand(op.perform([result, operands[index + 1]]))
         }
         calculatedAnswers.append(result)
+
       }
-      
+
       return calculatedAnswers
     }
     
@@ -113,7 +114,7 @@ final class Day7: Day {
   }
   
   func part1(_ rawInput: String) -> CodeChallenge {
-    let useExampleData: Bool = false
+    let useExampleData: Bool = true
     let question = """
         Determine which equations could possibly be true. 
         What is their total calibration result?
@@ -130,7 +131,7 @@ final class Day7: Day {
   }
   
   func part2(_ rawInput: String) -> CodeChallenge {
-    let useExampleData: Bool = false
+    let useExampleData: Bool = true
     let question = """
         Using your new knowledge of elephant hiding spots, determine which equations could possibly be true. 
         What is their total calibration result?
