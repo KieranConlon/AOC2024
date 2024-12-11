@@ -131,6 +131,7 @@ final class Day10: Day {
         
         if nextNode.isWord {
           endTrail.insert(Position(row: row, col: col))
+          
         }
         
         for direction in Directions.allCases {
@@ -205,7 +206,6 @@ final class Day10: Day {
     }
   }
   
-  
   func part1(_ rawInput: String) -> CodeChallenge {
     let useExampleData: Bool = false
     let question = "What is the sum of the scores of all trailheads on your topographic map?"
@@ -222,7 +222,7 @@ final class Day10: Day {
   
   func part2(_ rawInput: String) -> CodeChallenge {
     let useExampleData: Bool = false
-    let question = "Question for part 2."
+    let question = "What is the sum of the ratings of all trailheads?"
     
     return executeChallenge(title: title, question: question, timerReportingUnits: .milliseconds) {
       let input = useExampleData ? exampleData[4]! : rawInput
